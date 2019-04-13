@@ -3,17 +3,15 @@
   <button class="btn btn-outline-danger" [routerLink]="['/heroes']">Regresar</button>
   <hr>
 
-  <div class="row col-md-12"></div>
-
-  <form>
+  <form (ngSubmit)="guardar()" #forma="ngForm">
     <div class="form-group">
       <label>Nombre</label>
-      <input type="text" name="" class="form-control" placeholder="Nombre del héroe" required>
+      <input [(ngModel)]="heroe.nombre" name="nombre" type="text" class="form-control" placeholder="Nombre del héroe" required>
     </div>
 
     <div class="form-group">
       <label>Casa</label>
-      <select class="form-control">
+      <select [(ngModel)]="heroe.casa" name="casa" class="form-control" required>
         <option value="Marvel">Marvel</option>
         <option value="DC">DC</option>
       </select>
@@ -21,11 +19,11 @@
 
     <div class="form-group">
       <label>Bio</label>
-      <textarea type="text" class="form-control" required></textarea>
+      <textarea [(ngModel)]="heroe.bio" type="text" class="form-control" name="bio" required></textarea>
     </div>
 
     <div class="form-group">
-      <button type="submit" class="btn btn-outline-primary">Guardar cambios</button>
+      <button [disabled]="forma.invalid" type="submit" class="btn btn-outline-primary">Guardar cambios</button>
     </div>
 
   </form>
