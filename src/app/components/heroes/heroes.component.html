@@ -1,9 +1,6 @@
 <div>
   <div class="row">
     <div class="col-md-12 text-right">
-      <button class="btn btn-outline-warning" type="button" name="button" (click)="getHeroes()">
-        Ver heroes
-      </button>
       <button class="btn btn-outline-primary" type="button" [routerLink]="[ '/heroe', 'nuevo' ]">
         Nuevo
       </button>
@@ -17,6 +14,7 @@
         <th scope="col">Nombre</th>
         <th scope="col">Casa</th>
         <th scope="col">Bio</th>
+        <th scope="col">Opciones</th>
       </tr>
     </thead>
     <tbody>
@@ -25,8 +23,16 @@
         <td>{{heroeStack[heroe].nombre}}</td>
         <td>{{heroeStack[heroe].casa}}</td>
         <td>{{heroeStack[heroe].bio}}</td>
+        <td>
+          <button class="btn btn-outline-warning" type="button" [routerLink]="[ '/heroe', heroe, heroeStack[heroe].nombre ]">
+            Editar
+          </button>
+          <button class="btn btn-outline-danger" type="button" (click)="borrarHeroe(heroe)">
+            Borrar
+          </button>
+        </td>
       </tr>
     </tbody>
   </table>
 </div>
-<pre>{{heroeStack | json}}</pre>
+<pre></pre>

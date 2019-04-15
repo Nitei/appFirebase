@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { HeroesService } from '../../services/heroes.service';
-import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-heroes',
@@ -13,24 +12,25 @@ export class HeroesComponent implements OnInit {
   constructor(public service: HeroesService) {
     this.service.getHeroes()
       .subscribe( (data: any) => {
-        console.log(data);
         this.heroeStack = data;
       })
    }
 
-  ngOnInit() {
+  ngOnInit() {}
 
+  borrarHeroe(key$: string) {
+    this.service.borrarHeroe(key$)
+      .subscribe( data => {
+        if (data === null) {
+          delete this.heroeStack[key$]
+        }
+        console.log(data)
+        })
   }
 
   getHeroes() {
     this.service.getHeroes()
-    .pipe(
-      map( (x: any)=> {
-        this.heroeStack = x
-        console.log(x);
-      })
-      )
-    .subscribe();
+    .subscribe( (data: any) => this.heroeStack = data);
   }
 
 }

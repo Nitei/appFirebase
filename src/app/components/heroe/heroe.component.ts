@@ -25,7 +25,12 @@ export class HeroeComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute) {
       this.route.params
-        .subscribe( parametros => this.id = parametros['id'])
+        .subscribe( parametros => {
+          this.id = parametros['id']
+          if (parametros['nombre']) {
+            this.heroe.nombre = parametros['nombre'];
+          }
+        })
     }
 
   ngOnInit() {
@@ -50,11 +55,11 @@ export class HeroeComponent implements OnInit {
     }
   }
 
-    nuevoHeroe(form: NgForm) {
-      this.router.navigate(['/heroe', 'nuevo'])
-      form.reset({
-        casa: 'Marbel'
-      });
+  nuevoHeroe(form: NgForm) {
+    this.router.navigate(['/heroe', 'nuevo'])
+    form.reset({
+      casa: 'Marbel'
+    });
 
   }
 

@@ -1,7 +1,6 @@
 <div>
   <h3>Heroe<small> Nombre...</small></h3>
   <button class="btn btn-outline-danger" [routerLink]="['/heroes']">Regresar</button>
-  <button class="btn btn-outline-primary" (click)="nuevoHeroe(forma)">Nuevo heroe</button>
   <hr>
 
   <form (ngSubmit)="guardar()" #forma="ngForm">
