@@ -8,12 +8,14 @@ import { AppComponent } from './app.component'
 import { HeroesComponent } from './components/heroes/heroes.component'
 import { HeroeComponent } from './components/heroe/heroe.component'
 import { HeroesService } from './services/heroes.service';
+import { Key$pipePipe } from './components/pipes/key$pipe.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeroesComponent,
-    HeroeComponent
+    HeroeComponent,
+    Key$pipePipe
     ],
   imports: [
     FormsModule,
