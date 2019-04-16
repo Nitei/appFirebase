@@ -7,14 +7,12 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class Key$pipePipe implements PipeTransform {
 
   transform(value: any): any {
-    console.log(value);
     let keys = [];
     for (const key in value) {
       if (value.hasOwnProperty(key)) {
         keys.push(key)
       }
     }
-    console.log(keys);
     return keys
   }
 

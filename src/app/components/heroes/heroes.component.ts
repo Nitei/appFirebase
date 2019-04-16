@@ -24,7 +24,7 @@ export class HeroesComponent implements OnInit {
         if (data === null) {
           delete this.heroeStack[key$]
         }
-        console.log(data)
+        console.log(this.heroeStack.length);
         })
   }
 

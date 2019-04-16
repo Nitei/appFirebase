@@ -34,5 +34,6 @@
       </tr>
     </tbody>
   </table>
+  <div *ngIf="(heroeStack | key$).length === 0" class="alert alert-info"><strong>No hay</strong> heroes para mostrar</div>
 </div>
 <pre></pre>
